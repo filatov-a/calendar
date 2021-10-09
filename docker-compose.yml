@@ -1,0 +1,29 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      TZ: Europe/Kiev
+      MODE: application
+    container_name: calendar-db
+  nodejs:
+    build:
+        context: ./nodejs
+        dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./nodejs/:/app
+    depends_on:
+      - db
+    environment:
+      TZ: Europe/Kiev
+      MODE: application
+    container_name: calendar-nodejs
+    command: sh -c "pwd && npm i && npm run migrate && npm run nodemon"
