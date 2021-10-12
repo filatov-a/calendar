@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "artem-filatov",
-    "password": null,
+    "username": "calendar",
+    "password": "password",
     "database": "calendar",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": "db",
+    "dialect": "mysql"
   },
   "test": {
-    "username": "artem-filatov",
-    "password": null,
+    "username": "calendar",
+    "password": "password",
     "database": "calendar",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": "db",
+    "dialect": "mysql"
   },
   "production": {
-    "username": "artem-filatov",
-    "password": null,
+    "username": "calendar",
+    "password": "password",
     "database": "calendar",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": "db",
+    "dialect": "mysql"
   }
 }

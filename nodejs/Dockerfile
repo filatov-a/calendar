@@ -1,9 +1,13 @@
-FROM node:14.16.0
+FROM node:latest
 
+# create root application folder
 WORKDIR /app
+
+# copy configs to /app folder
 COPY package*.json ./
+# copy source code to /app/src folder
+COPY lib /app/lib
+
 RUN npm install
 
-COPY . .
-
-CMD [ "npm", "start"]
+EXPOSE 5000

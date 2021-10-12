@@ -8,7 +8,7 @@ module.exports = {
 				type: Sequelize.INTEGER,
 			},
 			name: {
-				type: Sequelize.TEXT,
+				type: Sequelize.STRING,
 				allowNull: false,
 			},
 			startTime: {
@@ -20,7 +20,7 @@ module.exports = {
 				allowNull: false,
 			},
 			descriptions: {
-				type: Sequelize.TEXT,
+				type: Sequelize.STRING,
 				allowNull: false,
 			},
 			isActive: {

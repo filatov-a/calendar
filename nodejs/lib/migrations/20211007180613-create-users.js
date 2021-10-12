@@ -8,25 +8,25 @@ module.exports = {
 				type: Sequelize.INTEGER,
 			},
 			username: {
-				type: Sequelize.TEXT,
+				type: Sequelize.STRING,
 				allowNull: false,
 				unique: true,
 			},
 			password: {
-				type: Sequelize.TEXT,
+				type: Sequelize.STRING,
 				allowNull: false,
 			},
 			full_name: {
-				type: Sequelize.TEXT,
+				type: Sequelize.STRING,
 				allowNull: true,
 			},
 			email: {
-				type: Sequelize.TEXT,
+				type: Sequelize.STRING,
 				allowNull: false,
 				unique: true,
 			},
 			profile_picture: {
-				type: Sequelize.TEXT,
+				type: Sequelize.STRING,
 				defaultValue: "default.png",
 			},
 			role: {

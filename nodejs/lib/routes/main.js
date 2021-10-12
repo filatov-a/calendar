@@ -16,4 +16,8 @@ router.post("/event", middleware(schemas.event_schema), controllerEvent.createEv
 router.get("/event/:id", controllerEvent.getEventById);
 router.delete("/event/:id", controllerEvent.deleteEventById);
 
+router.get("/user", function (req, res){
+	res.send("hello");
+});
+
 module.exports = router;

@@ -1,29 +1,28 @@
 version: "3.9"  # optional since v1.27.0
 services:
   db:
-    image: postgres
-    restart: always
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      TZ: Europe/Kiev
-      MODE: application
+    image: mysql
     container_name: calendar-db
+    command: --default-authentication-plugin=mysql_native_password --skip-log-bin --disable-log-bin
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: calendar
+      MYSQL_USER: calendar
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: strong-password
+      TZ: Europe/Kiev
+      SELF_UPDATE: 1
+    ports: [ '3306:3306' ]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+#      - ./docker_mysql_init.sql:/docker-entrypoint-initdb.d/docker_mysql_init.sql
   nodejs:
-    build:
-        context: ./nodejs
-        dockerfile: Dockerfile
+    build: ./nodejs
     ports:
       - "5000:5000"
-    volumes:
-      - ./nodejs/:/app
     depends_on:
       - db
+    command: bash -c 'while !</dev/tcp/db/3306; do sleep 1; done; npm run migrate; npm run mov'
     environment:
       TZ: Europe/Kiev
-      MODE: application
     container_name: calendar-nodejs
-    command: sh -c "pwd && npm i && npm run migrate && npm run nodemon"

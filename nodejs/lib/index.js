@@ -7,10 +7,8 @@ const config = require("./config/project");
 
 const routes = require("./routes/main.js");
 
-// Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}));
 
-// Parse application/json
 app.use(bodyParser.json());
 
 app.use("/", routes);
