@@ -10,7 +10,7 @@
     "username": "calendar",
     "password": "password",
     "database": "calendar",
-    "host": "db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {

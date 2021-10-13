@@ -16,9 +16,6 @@
     "seed:undo": "cd lib && npx sequelize-cli db:seed:undo",
     "seed:undo:all": "cd lib && npx sequelize-cli db:seed:undo:all",
     "test": "npm run lint",
-    "docker-compose": "cd ../ && docker-compose up",
-    "docker-compose:down": "cd .. && docker-compose down",
-    "docker-compose:stop": "cd .. && docker-compose stop",
     "docker": "docker run"
   },
   "author": "artem",

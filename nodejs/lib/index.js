@@ -14,5 +14,5 @@ app.use(bodyParser.json());
 app.use("/", routes);
 
 app.listen(config.app.port, () => {
-	console.log(`Example app listening at http://localhost:${config.app.port}`);
+	console.log(`App listening at http://localhost:${config.app.port}`);
 });

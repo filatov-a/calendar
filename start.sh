@@ -13,3 +13,5 @@ echo "\n"
 echo "docker ps -a\n"
 docker ps -a
 echo "\n"
+
+docker logs -f calendar_nodejs
