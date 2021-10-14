@@ -35,8 +35,7 @@ module.exports.create_schema = Joi.object().keys({
 module.exports.event_schema = Joi.object().keys({
 	name: Joi.string().min(3).max(20).lowercase()
 		.required(),
-	startTime: Joi.string().dataUri().required(),
-	endTime: Joi.string().dataUri().required(),
+	startTime: Joi.string().isoDate().required(),
+	endTime: Joi.string().isoDate().required(),
 	descriptions: Joi.string().min(3).max(20).required(),
-	isActive: Joi.bool().required(),
 });

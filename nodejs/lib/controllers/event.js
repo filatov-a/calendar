@@ -11,11 +11,12 @@ module.exports.createEvent = async (req, res) => {
 		const token = getToken(req);
 		const decode = await jwt.verify(token, config.token.accessToken);
 		const usrDb = await users.findOne({where: {id: decode.id}});
+		if (!usrDb) throw new Error("user didn't auth! Incorrect token");
 		const eSchema = {
 			name: req.body.name,
 			startTime: new Date(req.body.startTime),
 			endTime: new Date(req.body.endTime),
-			descriptions: req.body.name,
+			descriptions: req.body.descriptions,
 			isActive: true,
 			userId: usrDb.id,
 		};
