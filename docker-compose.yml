@@ -1,0 +1,29 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  db:
+    image: mysql
+    container_name: calendar_db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: calendar
+      MYSQL_USER: calendar
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: strong-password
+      TZ: Europe/Kiev
+    ports: [ '3306:3306' ]
+    volumes:
+      - ./databases:/var/lib/mysql
+#      - ./docker_mysql_init.sql:/docker-entrypoint-initdb.d/docker_mysql_init.sql
+#  nodejs:
+#    container_name: calendar_nodejs
+#    build: ./nodejs
+#    ports:
+#      - "5000:5000"
+#    depends_on:
+#      - db
+#    command: sh -c 'npm run migrate && npm run seed && npm run mov'
+#    environment:
+#      TZ: Europe/Kiev
+#    volumes:
+#      - ./nodejs/lib:/app/lib

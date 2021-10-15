@@ -1,0 +1,39 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "node lib/index.js",
+    "mov": "nodemon lib/index.js",
+    "lint": "eslint lib --fix --ext .js",
+    "migrate": "cd lib && npx sequelize-cli db:migrate",
+    "migrate:create": "cd lib && npx sequelize-cli model:generate --name eventsToUsers --attributes userId:integer,eventId:integer",
+    "migrate:undo": "cd lib && npx sequelize-cli db:migrate:undo",
+    "migrate:undo:all": "cd lib && npx sequelize-cli db:migrate:undo:all",
+    "seed": "cd lib && npx sequelize-cli db:seed:all",
+    "seed:create": "cd lib && npx sequelize-cli seed:generate --name demo-user",
+    "seed:undo": "cd lib && npx sequelize-cli db:seed:undo",
+    "seed:undo:all": "cd lib && npx sequelize-cli db:seed:undo:all",
+    "test": "npm run lint",
+    "docker": "docker run"
+  },
+  "author": "artem",
+  "license": "ISC",
+  "dependencies": {
+    "argon2": "^0.28.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.0",
+    "nodemailer": "^6.6.5",
+    "nodemon": "^2.0.13",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "sequelize-cli": "^6.2.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "calendar",
+    "password": "password",
+    "database": "calendar",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "calendar",
+    "password": "password",
+    "database": "calendar",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "calendar",
+    "password": "password",
+    "database": "calendar",
+    "host": "db",
+    "dialect": "mysql"
+  }
+}
