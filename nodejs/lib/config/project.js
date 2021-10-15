@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef
-module.exports = { //TODO fix config.json & docker-compose(db name)
+module.exports = {
 	app: {
 		port: 5000,
 		email: "philatov06@gmail.com",
